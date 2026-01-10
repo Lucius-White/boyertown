@@ -1,0 +1,543 @@
+/* ============================================
+   BOYERTOWN HISTORY - CUSTOM STYLES
+   A sepia-toned historical timeline website
+   ============================================ */
+
+/* --------------------------------------------
+   CSS VARIABLES (Custom Properties)
+   These define our sepia color palette
+   -------------------------------------------- */
+:root {
+    --sepia-dark: #3d2914;
+    --sepia-medium: #8b6914;
+    --sepia-light: #d4a574;
+    --sepia-bg: #f5e6d3;
+    --sepia-paper: #faf3e8;
+    --sepia-shadow: rgba(61, 41, 20, 0.3);
+    --sepia-accent: #a67c52;
+}
+
+/* --------------------------------------------
+   BASE STYLES
+   Global styles applied to all elements
+   -------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--sepia-bg);
+    color: var(--sepia-dark);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+}
+
+/* --------------------------------------------
+   HERO HEADER
+   The full-screen landing section
+   -------------------------------------------- */
+.hero-header {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(61, 41, 20, 0.9) 0%,
+            rgba(139, 105, 20, 0.85) 50%,
+            rgba(61, 41, 20, 0.9) 100%
+        ),
+        url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 0%,
+        rgba(61, 41, 20, 0.4) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    color: var(--sepia-paper);
+    margin-bottom: 10px;
+    text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.4);
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem;
+    color: var(--sepia-light);
+    margin-bottom: 30px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.hero-tagline {
+    font-size: 1.2rem;
+    color: rgba(250, 243, 232, 0.9);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.hero-years {
+    display: inline-block;
+    background-color: rgba(250, 243, 232, 0.15);
+    border: 2px solid var(--sepia-light);
+    color: var(--sepia-paper);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+/* Scroll Indicator Animation */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(250, 243, 232, 0.7);
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: bounce 2s infinite;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 30px;
+    border-right: 3px solid rgba(250, 243, 232, 0.7);
+    border-bottom: 3px solid rgba(250, 243, 232, 0.7);
+    transform: rotate(45deg);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* --------------------------------------------
+   INTRO SECTION
+   Brief introduction text
+   -------------------------------------------- */
+.intro-section {
+    padding: 80px 20px 40px;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #5a4a3a;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --------------------------------------------
+   TIMELINE
+   The main timeline layout
+   -------------------------------------------- */
+.timeline-section {
+    padding: 40px 0 80px;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* The center vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        var(--sepia-light),
+        var(--sepia-medium),
+        var(--sepia-light)
+    );
+    border-radius: 2px;
+    top: 0;
+}
+
+/* --------------------------------------------
+   TIMELINE EVENTS
+   Individual event cards
+   -------------------------------------------- */
+.timeline-event {
+    position: relative;
+    width: 50%;
+    padding: 20px 40px;
+    margin-bottom: 40px;
+}
+
+/* Left-side events */
+.timeline-left {
+    left: 0;
+    padding-right: 60px;
+}
+
+/* Right-side events */
+.timeline-right {
+    left: 50%;
+    padding-left: 60px;
+}
+
+/* The dot on the timeline */
+.timeline-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--sepia-paper);
+    border: 4px solid var(--sepia-medium);
+    border-radius: 50%;
+    top: 30px;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.timeline-left .timeline-dot {
+    right: -10px;
+}
+
+.timeline-right .timeline-dot {
+    left: -10px;
+}
+
+/* Dot hover effect */
+.timeline-event:hover .timeline-dot {
+    background-color: var(--sepia-medium);
+    transform: scale(1.3);
+    box-shadow: 0 0 20px var(--sepia-shadow);
+}
+
+/* The event card */
+.timeline-card {
+    background-color: var(--sepia-paper);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--sepia-shadow);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--sepia-shadow);
+    border-color: var(--sepia-light);
+}
+
+/* Card image */
+.timeline-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    filter: sepia(0.6) brightness(0.95);
+    transition: all 0.4s ease;
+}
+
+.timeline-card:hover .timeline-image {
+    filter: sepia(0.3) brightness(1);
+    transform: scale(1.05);
+}
+
+/* Card text content */
+.timeline-card-body {
+    padding: 20px;
+}
+
+.timeline-year {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--sepia-medium), var(--sepia-dark));
+    color: var(--sepia-paper);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.timeline-title {
+    font-size: 1.3rem;
+    color: var(--sepia-dark);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.timeline-desc {
+    font-size: 0.95rem;
+    color: #5a4a3a;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.read-more {
+    font-size: 0.85rem;
+    color: var(--sepia-medium);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.timeline-card:hover .read-more {
+    color: var(--sepia-dark);
+}
+
+/* --------------------------------------------
+   BOOTSTRAP MODAL CUSTOMIZATION
+   Styling the popup modal
+   -------------------------------------------- */
+.modal-content {
+    background-color: var(--sepia-paper);
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.modal-image-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.modal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.4) brightness(0.9);
+}
+
+.modal-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to top, var(--sepia-paper), transparent);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    background-color: var(--sepia-paper);
+    border-radius: 50%;
+    padding: 10px;
+    opacity: 1;
+    box-shadow: 0 2px 10px var(--sepia-shadow);
+    transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+    background-color: var(--sepia-dark);
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: 30px 35px 35px;
+}
+
+.modal-year {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--sepia-medium), var(--sepia-dark));
+    color: var(--sepia-paper);
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.modal-title {
+    font-size: 1.8rem;
+    color: var(--sepia-dark);
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.modal-divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--sepia-light), var(--sepia-medium));
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+.modal-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #4a3a2a;
+    text-align: justify;
+}
+
+/* Modal backdrop color */
+.modal-backdrop.show {
+    background-color: rgba(61, 41, 20, 0.85);
+}
+
+/* --------------------------------------------
+   FOOTER
+   Bottom of page credits
+   -------------------------------------------- */
+.site-footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(
+        to bottom,
+        var(--sepia-bg),
+        rgba(212, 165, 116, 0.3)
+    );
+    border-top: 1px solid var(--sepia-light);
+}
+
+.site-footer p {
+    color: var(--sepia-dark);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.footer-credits {
+    font-size: 0.9rem !important;
+    color: #8a7a6a !important;
+    font-style: italic;
+}
+
+/* --------------------------------------------
+   RESPONSIVE DESIGN
+   Adjustments for smaller screens
+   -------------------------------------------- */
+@media (max-width: 768px) {
+    /* Hero adjustments */
+    .hero-header {
+        min-height: 80vh;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.4rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    /* Timeline becomes single column */
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-event {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 20px;
+    }
+
+    .timeline-left,
+    .timeline-right {
+        left: 0;
+        padding-left: 50px;
+        padding-right: 20px;
+    }
+
+    .timeline-left .timeline-dot,
+    .timeline-right .timeline-dot {
+        left: 10px;
+        right: auto;
+    }
+
+    .timeline-image {
+        height: 150px;
+    }
+
+    .timeline-title {
+        font-size: 1.1rem;
+    }
+
+    /* Modal adjustments */
+    .modal-image-container {
+        height: 200px;
+    }
+
+    .modal-body {
+        padding: 20px 25px 30px;
+    }
+
+    .modal-title {
+        font-size: 1.4rem;
+    }
+
+    .modal-description {
+        font-size: 1rem;
+    }
+
+    /* Footer */
+    .site-footer {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-years {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
