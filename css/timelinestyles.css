@@ -1,33 +1,25 @@
-
+:root {
+    --sepia-dark: #3d2914;
+    --sepia-medium: #8b6914;
+    --sepia-light: #d4a574;
+    --sepia-bg: #f5e6d3;
+    --sepia-paper: #faf3e8;
+    --sepia-shadow: rgba(61, 41, 20, 0.3);
+    --sepia-accent: #a67c52;
+}
 /* --------------------------------------------
    TIMELINE
    The main timeline layout
    -------------------------------------------- */
-.timeline-section {
-    padding: 40px 0 80px;
-}
-
-.timeline {
-    position: relative;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
 
 /* The center vertical line */
-.timeline::before {
-    content: '';
+.timeline-line {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     width: 4px;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        var(--sepia-light),
-        var(--sepia-medium),
-        var(--sepia-light)
-    );
+    background-color: var(--bs-primary);
     border-radius: 2px;
     top: 0;
 }
@@ -299,7 +291,7 @@
     }
 
     /* Timeline becomes single column */
-    .timeline::before {
+    .timeline-line {
         left: 20px;
     }
 
