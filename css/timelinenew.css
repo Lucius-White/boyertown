@@ -1,0 +1,95 @@
+.tl-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* I did this to correct the two pixels off*/
+    width: 4px;
+    height: 100%;
+    background-color: var(--bs-black);
+    top: 0;
+}
+
+.tl-left, .tl-right {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 60px;
+    margin-bottom: 40px;
+    left: 0;
+}
+.tl-dot {
+    display: none;
+}
+
+.tl-left .tl-dot {
+    right: -10px;
+}
+
+.tl-right .tl-dot {
+    left: -10px;
+}
+
+.tl-dot:hover {
+    transform: scale(1.3);
+}
+
+.tl-card {
+    background-color: var(--bs-white);
+    border-radius: 12px;
+    overflow: hidden;
+    /*Hides the rest of text*/
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--bs-gray);
+}
+
+.tl-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--bs-black);
+}
+
+.tl-img {
+    width: 100%;
+    aspect-ratio: 2;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.tl-year {
+    display: inline-block;
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+@media (min-width: 1000px) {
+    .tl-left {
+        width: 50%;
+    }
+
+    .tl-right {
+        width: 50%;
+        padding-left: 60px;
+        padding-right: 40px;
+        left: 50%;
+    }
+
+    .tl-dot {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: var(--bs-primary);
+        border: 4px solid var(--bs-black);
+        border-radius: 50%;
+        top: 50%;
+        z-index: 1;
+        transition: all 0.3s ease;
+        display:block;
+    }
+
+}

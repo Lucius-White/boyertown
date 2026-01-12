@@ -153,33 +153,15 @@ const events = [
         description: "The General Carl Spaatz National USAAF Museum opened on October 2, 2021, on General Spaatz Avenue in Boyertown. The museum honors General Carl Spaatz, who grew up in Boyertown and became one of the most important military leaders in American history. The museum preserves the legacy of the man who commanded air forces in both the European and Pacific theaters during World War II and became the first Chief of Staff of the U.S. Air Force. A section of Pennsylvania Route 562 was also named the General Carl A. Spaatz Memorial Highway in his honor in 2018."
     }
 ];
-
-// --------------------------------------------
-// MODAL FUNCTIONALITY
-// Updates modal content when an event is clicked
-// --------------------------------------------
-
-// Get references to the modal elements
 const modalImage = document.getElementById('modalImage');
 const modalYear = document.getElementById('modalYear');
 const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
-
-// Get the modal element
 const eventModal = document.getElementById('eventModal');
-
-// Listen for when the modal is about to be shown
 eventModal.addEventListener('show.bs.modal', function (event) {
-    // Get the button/card that triggered the modal
     const triggerElement = event.relatedTarget;
-
-    // Get the event ID from the data attribute
     const eventId = parseInt(triggerElement.getAttribute('data-event'));
-
-    // Find the event data by ID
     const eventData = events.find(e => e.id === eventId);
-
-    // Update the modal content with the event data
     if (eventData) {
         modalImage.src = eventData.image;
         modalImage.alt = eventData.imageAlt;
@@ -188,10 +170,3 @@ eventModal.addEventListener('show.bs.modal', function (event) {
         modalDescription.textContent = eventData.description;
     }
 });
-
-// --------------------------------------------
-// OPTIONAL: Smooth scroll for better UX
-// --------------------------------------------
-
-// Add smooth scrolling behavior
-document.documentElement.style.scrollBehavior = 'smooth';

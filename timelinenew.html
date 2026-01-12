@@ -7,13 +7,11 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <title>Boyertown History</title>
-  <!-- Favicon-->
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <!-- Bootstrap icons-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-  <!-- Bootstrap core CSS and core theme css-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/custom.css">
+  <link rel="stylesheet" href="/css/timelinenew.css">
 </head>
 
 <body>
@@ -45,13 +43,72 @@
     </nav>
   </header>
   <main>
-    
+    <section class="tl-section">
+      <div class="container position-relative">
+        <div class="tl">
+          <div class="tl-line"></div>
+          <div class="tl-left">
+            <div class="tl-dot"></div>
+            <div class="tl-card card" data-bs-toggle="modal" data-bs-target="#tl1">
+              <img class="tl-img" src="https://picsum.photos/300/150">
+              <div class="tl-card-content card-content container">
+                <span class="tl-year">1700</span>
+                <h2 class="tl-title">Idk</h2>
+                <p class="tl-description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum.
+                </p>
+                <span class="tl-read-more"></span>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="tl1" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  ...
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-dot"></div>
+            <div class="tl-card card">
+              <img class="tl-img" src="https://picsum.photos/300/150?x=1">
+              <div class="tl-card-content card-content container">
+                <span class="tl-year">1700</span>
+                <h2 class="tl-title">Idk</h2>
+                <p class="tl-description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                  officia deserunt mollit anim id est laborum.
+                </p>
+                <span class="tl-read-more"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
   <footer></footer>
-  <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- Core theme JS-->
   <script src="js/scripts.js"></script>
+  <script src="js/timelinenew.js></script>
 </body>
 
 </html>
