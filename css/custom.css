@@ -31,7 +31,7 @@
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
   --bs-primary-rgb: 192, 0, 0;
-  --bs-secondary-rgb: 0, 0, 0; 
+  --bs-secondary-rgb: 0, 0, 0;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -66,9 +66,21 @@
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
+
+.modal {
+  --bs-modal-width: 800px;
+}
+
 html {
   height: 100%;
 }
+
 main {
   min-height: calc(100vh - 80px);
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    padding: 0 15px;
+  }
 }
